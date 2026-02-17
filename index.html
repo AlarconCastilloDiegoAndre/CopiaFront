@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>pre-altas-frontend</title>
+
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+    }
+
+    #initial-loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      z-index: 9999;
+    }
+
+    .pulse-image {
+      width: 280px;
+      max-width: 80%;
+      height: auto;
+      object-fit: contain;
+      animation: pulse 2.5s ease-in-out infinite;
+      will-change: opacity, transform;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.7;
+        transform: scale(0.97);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="initial-loading-screen">
+    <img src="./src/assets/logo/escudo_FIF_2.webp" class="pulse-image" alt="Cargando..." />
+  </div>
+  <script>
+    (function () {
+      var hasLoadedBefore = sessionStorage.getItem('app-loaded');
+      var loadingScreen = document.getElementById('initial-loading-screen');
+      if (hasLoadedBefore && loadingScreen) {
+        loadingScreen.style.display = 'none';
+      }
+    })();
+  </script>
+
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

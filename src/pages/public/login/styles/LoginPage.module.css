@@ -1,0 +1,238 @@
+/* ===========================================
+   BASE LAYOUT (Mobile First)
+   =========================================== */
+
+.pageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  background-color: #F9FAFB;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+.loginCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  min-height: 480px;
+}
+
+/* ===========================================
+   FORMULARIOS (Containers)
+   =========================================== */
+
+.formContainer {
+  width: 100%;
+  padding: 2rem 1rem;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* --- Lógica de visualización en MÓVIL --- */
+.studentFormContainer {
+  display: flex;
+  opacity: 1;
+  z-index: 2;
+}
+
+.adminFormContainer {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.loginCard.rightPanelActive .studentFormContainer {
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.loginCard.rightPanelActive .adminFormContainer {
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* ===========================================
+   ANIMACIONES Y OVERLAY (Efecto Deslizante)
+   =========================================== */
+
+.overlayContainer {
+  display: none;
+}
+
+@keyframes show {
+
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+/* ===========================================
+   BOTÓN TOGGLE (Solo Móvil)
+   =========================================== */
+.mobileToggleContainer {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #F9FAFB;
+  text-align: center;
+}
+
+.mobileToggleButton {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #FFFFFF;
+  color: #003366;
+  border: 2px solid #003366;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mobileToggleButton:active {
+  transform: scale(0.98);
+}
+
+/* ===========================================
+   DESKTOP STYLES (Min-width: 960px)
+   =========================================== */
+
+@media (min-width: 960px) {
+  .pageContainer {
+    padding: 2rem;
+  }
+
+  .loginCard {
+    max-width: 960px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+  }
+
+  .mobileToggleContainer {
+    display: none;
+  }
+
+  .formContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    padding: 1.5rem;
+    transition: all 0.6s ease-in-out;
+    overflow: visible;
+    margin: 0;
+  }
+
+  .studentFormContainer {
+    display: flex;
+    z-index: 2;
+    opacity: 1;
+  }
+
+  .adminFormContainer {
+    display: flex;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .overlayContainer {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 50;
+  }
+
+  .overlay {
+    background: #003366;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+  }
+
+  .overlayPanel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .overlayStudentPanel {
+    right: 0;
+    transform: translateX(0);
+  }
+
+  .overlayAdminPanel {
+    left: 0;
+    transform: translateX(-20%);
+  }
+
+  .loginCard.rightPanelActive .studentFormContainer {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .loginCard.rightPanelActive .adminFormContainer {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+  }
+
+  .loginCard.rightPanelActive .overlayContainer {
+    transform: translateX(-100%);
+  }
+
+  .loginCard.rightPanelActive .overlay {
+    transform: translateX(50%);
+  }
+
+  .loginCard.rightPanelActive .overlayStudentPanel {
+    transform: translateX(20%);
+  }
+
+  .loginCard.rightPanelActive .overlayAdminPanel {
+    transform: translateX(0);
+  }
+}

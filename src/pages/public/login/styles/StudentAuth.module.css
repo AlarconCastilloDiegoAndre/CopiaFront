@@ -1,0 +1,341 @@
+/*--- COPIA DE AdminLoginForm.module.css (Base Responsiva) --- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.formContainer {
+  width: 100%;
+  padding: 1.5rem 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.875rem;
+  }
+}
+
+.subtitle {
+  color: #4B5563;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 0.25rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background-color: #ffffff;
+  border: 2px solid #D1D5DB;
+  color: #111827;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #003d6b;
+}
+
+.input::placeholder {
+  color: #6B7280;
+}
+
+.input.error {
+  border-color: #EF4444;
+}
+
+.error {
+  color: #EF4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0.25rem 0;
+}
+
+.errorField {
+  color: #EF4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* --- AGREGADOS PARA ESTUDIANTE (Toggle Login/Registro) --- */
+
+.toggleContainer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #E5E7EB;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggleText {
+  font-size: 0.875rem;
+  color: #6B7280;
+  margin: 0;
+}
+
+.toggleButton {
+  font-weight: 600;
+  color: #003366;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.toggleButton:hover {
+  text-decoration: underline;
+  color: #002a55;
+}
+
+.forgotPasswordLink {
+  font-size: 0.875rem;
+  color: #003366;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.forgotPasswordLink:hover {
+  color: #002a55;
+  text-decoration: underline;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inputError {
+  border-color: #EF4444 !important;
+}
+
+.listboxError {
+  border-color: #EF4444 !important;
+}
+
+/* --- Ajustes para Desktop --- */
+@media (min-width: 960px) {
+  .formContainer {
+    max-height: 580px;
+    overflow-y: auto;
+    overflow-x: visible;
+    padding-right: 0;
+    padding-left: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #003366 #E5E7EB;
+  }
+
+  .formContainer::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .formContainer::-webkit-scrollbar-track {
+    background: #E5E7EB;
+    border-radius: 10px;
+  }
+
+  .formContainer::-webkit-scrollbar-thumb {
+    background: #003366;
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+
+  .formContainer::-webkit-scrollbar-thumb:hover {
+    background: #002a55;
+  }
+
+  .header {
+    margin-bottom: 0.75rem;
+    padding-right: 1rem;
+  }
+
+  .form {
+    gap: 0.75rem;
+    padding-right: 1rem;
+  }
+
+  .input {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .toggleContainer {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    padding-right: 1rem;
+  }
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.passwordToggle:hover {
+  color: #003366;
+}
+
+.passwordToggle:focus {
+  outline: none;
+}
+
+
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.successIconWrapper {
+  margin-bottom: 1.5rem;
+  animation: scaleIn 0.6s ease-out;
+}
+
+.successIcon {
+  font-size: 5rem;
+  color: #10B981;
+}
+
+.successTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.successSubtitle {
+  color: #6B7280;
+  font-size: 1rem;
+  margin: 0;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Success Screen Styles */
+.successContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.successContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.successIcon {
+  font-size: 5rem;
+  color: #10B981;
+  animation: scaleIn 0.6s ease-out;
+}
+
+.successTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.successSubtitle {
+  font-size: 1rem;
+  color: #6B7280;
+  margin: 0;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
